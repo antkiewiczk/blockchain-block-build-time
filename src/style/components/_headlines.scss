@@ -1,0 +1,32 @@
+.headline {
+  font-family: $font-headline;
+  color: $c-text;
+  font-weight: 300;
+  text-align: center;
+  line-height: 1.15;
+  &__primary {
+    @extend .headline;
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  &__secondary {
+    @extend .headline;
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+}
+
+.text {
+  font-family: $font-main;
+  font-weight: 600;
+  color: $c-text;
+  text-align: center;
+  line-height: 1.25;
+  font-size: 17px;
+  margin-bottom: 8px;
+  &--error {
+    @extend .text;
+    font-size: 14px;
+    color: red;
+  }
+}

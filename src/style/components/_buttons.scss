@@ -1,0 +1,11 @@
+.button {
+  padding: 16px 32px;
+  background-color: $c-highlight;
+  font-weight: 600;
+  color: $c-white;
+  border-radius: 40px;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
