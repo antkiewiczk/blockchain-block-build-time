@@ -30,3 +30,13 @@
     color: red;
   }
 }
+
+.link {
+  font-family: $font-main;
+  color: $c-highlight;
+  cursor: pointer;
+  &:hover {
+    color: $c-highlight;
+    text-decoration: none;
+  }
+}

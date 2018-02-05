@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
- import Loader from 'react-loader-spinner'
+import Loader from 'react-loader-spinner'
 
 class LoaderComponent extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

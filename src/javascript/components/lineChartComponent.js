@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 
 class LineChartComponent extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

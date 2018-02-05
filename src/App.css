@@ -90,6 +90,14 @@ table {
     font-size: 14px;
     color: red; }
 
+.link {
+  font-family: "Raleway", sans-serif;
+  color: #0EBFE9;
+  cursor: pointer; }
+  .link:hover {
+    color: #0EBFE9;
+    text-decoration: none; }
+
 .form {
   display: flex;
   padding: 40px 24px;

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 import BlockNumberForm from '../components/blockNumberForm.js';
 import LineChartComponent from '../components/lineChartComponent.js';
 import LoaderComponent from '../components/loaderComponent.js';
