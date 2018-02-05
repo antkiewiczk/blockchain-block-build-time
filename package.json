@@ -1,8 +1,10 @@
 {
+  "homepage": "http://antkiewiczk.github.io/blockchain-block-build-time",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^1.1.0",
     "node-sass-chokidar": "^0.0.3",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
@@ -14,6 +16,8 @@
     "sass": "^1.0.0-beta.5.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
