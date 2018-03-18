@@ -107,11 +107,7 @@ class MainPage extends Component {
   }
 
   displayError() {
-    if (this.state.wrongNumber) {
-      return (
-        <p className="text--error">Please provide a number between 3 and 200</p>
-      )
-    }
+    this.state.wrongNumber ? <p className="text--error">Please provide a number between 3 and 200</p> : ''
   }
 
   render() {
