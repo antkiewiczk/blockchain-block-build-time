@@ -14,6 +14,16 @@
     font-size: 24px;
     margin-bottom: 8px;
   }
+  @media (max-width: 767px) {
+    &__primary {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    &__secondary {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+  }
 }
 
 .text {

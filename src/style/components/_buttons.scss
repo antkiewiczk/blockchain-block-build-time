@@ -5,7 +5,14 @@
   color: $c-white;
   border-radius: 40px;
   cursor: pointer;
+  // max-height: 64px;
+  transition: background-color .1s ease;
+  &:hover {
+    background-color: $c-highlight-dark;
+  }
   &:focus {
     outline: none;
+    border: none;
+    box-shadow: none;
   }
 }

@@ -3,6 +3,8 @@ import BlockNumberForm from '../components/blockNumberForm.js';
 import LineChartComponent from '../components/lineChartComponent.js';
 import LoaderComponent from '../components/loaderComponent.js';
 
+import logo from '../../ethereum_logo.svg';
+
 class MainPage extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,8 @@ class MainPage extends Component {
       previousBlockNumber: 0,
       previousBlockTimestamp: 0,
       dataReady: '',
-      wrongNumber: false
+      wrongNumber: false,
+      formSubmitted: false,
     };
   }
 
@@ -23,16 +26,14 @@ class MainPage extends Component {
   submitForm(value) {
     this.data = [];
     this.i = 0;
-    this.setState({numberOfBlocks: 0, currentBlockNumber: 0, currentBlockTimestamp: 0, previousBlockNumber: 0, previousBlockTimestamp: 0, dataReady: false});
-    this.setState({numberOfBlocks: value});
-    this.getLatestBlock(); 
+    this.setState({numberOfBlocks: value, formSubmitted: true});
+    this.getLatestBlock();
   }
 
-  checkNumber(e) {
+  checkNumber = (e, input) => {
     e.preventDefault();
-    const input = document.querySelector('input[type=number]');
-    if (input.value > 2 && input.value < 201) {
-      this.submitForm(input.value);
+    if (input > 2 && input < 201) {
+      this.submitForm(input);
       this.setState({wrongNumber: false});
     } else {
       this.setState({wrongNumber: true});
@@ -65,7 +66,7 @@ class MainPage extends Component {
 
   countAverageBlockBuildTime() {
     if (this.state.numberOfBlocks) {
-      return `The average time to build a block in Ethereum Blockchain (based on previous ${this.state.numberOfBlocks} blocks) =  `+ (this.state.currentBlockTimestamp - this.state.previousBlockTimestamp) / this.state.numberOfBlocks + 's';
+      return `The average time to build a block in Ethereum Blockchain (based on previous ${this.state.numberOfBlocks} blocks) =  `+ ((this.state.currentBlockTimestamp - this.state.previousBlockTimestamp) / this.state.numberOfBlocks).toFixed(3) + 's';
     }
   }
 
@@ -106,14 +107,13 @@ class MainPage extends Component {
     }
   }
 
-  displayError() {
-    this.state.wrongNumber ? <p className="text--error">Please provide a number between 3 and 200</p> : ''
-  }
-
   render() {
+    const { formSubmitted, wrongNumber } = this.state;
+
     return (
       <div className="app">
         <div className="container">
+          {!formSubmitted && <img src={logo} className="logo" alt="logo" />}
           <h1 className="headline__primary">
             Welcome to Ethereum Blockchain average block build time checker.
           </h1>
@@ -121,9 +121,9 @@ class MainPage extends Component {
             Please provide the number of blocks you wish to check. They count from the most recent block.
           </p>
           <BlockNumberForm 
-            onClick={this.checkNumber.bind(this)}
+            onClick={this.checkNumber}
           />
-          {this.displayError()}
+          {wrongNumber && <p className="text--error">Please provide a number between 3 and 200</p>}
           <div className="result">
             <h2 className="headline__secondary">{this.countAverageBlockBuildTime()}</h2>
           </div>
