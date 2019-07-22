@@ -10,9 +10,9 @@ class App extends Component {
 
   checkMetamask() {
     if (window.web3) {
-      return <MainPage />
+      return <MainPage />;
     } else {
-      return <NoMetamask />
+      return <NoMetamask />;
     }
   }
 
